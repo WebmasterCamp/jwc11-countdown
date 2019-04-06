@@ -19,7 +19,6 @@ const Logo = styled.img`
 
 const LoadingWrapper = styled.div`
   display: flex;
-  background-color: rgb(16, 10, 16);
   width: 100%;
   height: 100vh;
   justify-content: center;

@@ -1,14 +1,14 @@
-import React, {useEffect, useState, Suspense} from 'react'
+import React, {Suspense} from 'react'
 import styled from 'styled-components'
 import fiery from 'fiery'
 import firebase from 'firebase'
 
-import Clock from './Clock'
 import Loading from './Loading'
+import Clock from './Clock'
+import Message from './components/Message'
 
 const LoadingWrapper = styled.div`
   display: flex;
-  background-color: rgb(16, 10, 16);
   width: 100%;
   height: 100vh;
   justify-content: center;
@@ -35,32 +35,21 @@ const Wrapper = () => {
 }
 
 const App = () => {
-  const endRef = firebase.database().ref('config/end')
-  const endState = fiery.useFirebaseDatabase(endRef)
+  const configRef = firebase.database().ref('config/')
+  const configState = fiery.useFirebaseDatabase(configRef)
 
-  const startRef = firebase.database().ref('config/start')
-  const startState = fiery.useFirebaseDatabase(startRef)
-
-  const [end, setEnd] = useState('')
-  const [start, setStart] = useState(false)
-
-  useEffect(() => {
-    if (endState.data) {
-      setEnd(endState.data)
-      console.log(new Date(endState.data))
-    }
-    if (startState.data !== undefined) {
-      setStart(startState.data)
-    }
-  }, [endState.data, startState.data])
+  const config = configState.unstable_read() || {
+    start: false,
+    end: 'Apr 7, 2019 9:00:00',
+    message: '',
+    announcement: false
+  }
 
   return (
     <>
-      {start ? <Clock end={end} /> : <Loading />}
-      <div style={{display: 'none'}}>
-        {endState.unstable_read()}
-        {startState.unstable_read()}
-      </div>
+      {config.start ? <Clock end={config.end} /> : <Loading />}
+      {config.announcement && <Message message={config.message} />}
+      <div style={{display: 'none'}}>{JSON.stringify(config)}</div>
     </>
   )
 }
