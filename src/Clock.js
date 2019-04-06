@@ -1,4 +1,4 @@
-import React, {Component, useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import Countdown from './components/Countdown'
 import Fire from './assets/fire.gif'
 import './Clock.css'
@@ -244,18 +244,6 @@ const Clock = ({end}) => {
         </div>
       </div>
       <Countdown date={endtime} setCountDown={data => setCountDown(data)} />
-      {/* <Particles
-					params={{
-						polygon: {
-							enable: true,
-							type: 'inside',
-							move: {
-								radius: 10,
-							},
-							url: 'path/to/svg.svg',
-						},
-					}}
-				/> */}
     </div>
   )
 }

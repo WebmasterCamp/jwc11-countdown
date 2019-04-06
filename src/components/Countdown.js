@@ -15,7 +15,6 @@ class Countdown extends Component {
   }
 
   startTimer() {
-    // console.log(event);
     // update every second
     if (!this.state.isStart) {
       const date = this.calculateCountdown(this.props.date)
@@ -89,6 +88,7 @@ class Countdown extends Component {
     let date = this.calculateCountdown(this.props.date)
     date && this.setState(date)
     date && this.props.setCountDown(date)
+    this.startTimer()
   }
 
   componentWillUnmount() {
@@ -116,7 +116,7 @@ class Countdown extends Component {
         <span className="Countdown-col">
           <span className="Countdown-col-element">
             <strong>{this.addLeadingZeros(countDown.sec)}</strong>
-            <span onClick={() => this.startTimer()}> Seconds </span>
+            <span> Seconds </span>
           </span>
         </span>
       </div>
