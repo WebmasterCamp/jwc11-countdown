@@ -99,22 +99,19 @@ class Countdown extends Component {
       <div className="Countdown" style={{position: 'absolute'}}>
         <span className="Countdown-col">
           <span className="Countdown-col-element">
-            <strong>{this.addLeadingZeros(countDown.hours)}</strong>
-            <span> Hours </span>
+            <strong>{this.addLeadingZeros(countDown.hours)}</strong>:
           </span>
         </span>
 
         <span className="Countdown-col">
           <span className="Countdown-col-element">
-            <strong>{this.addLeadingZeros(countDown.min)}</strong>
-            <span> Minutes </span>
+            <strong>{this.addLeadingZeros(countDown.min)}</strong>:
           </span>
         </span>
 
         <span className="Countdown-col">
           <span className="Countdown-col-element">
             <strong>{this.addLeadingZeros(countDown.sec)}</strong>
-            <span> Seconds </span>
           </span>
         </span>
       </div>

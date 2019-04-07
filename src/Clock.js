@@ -30,7 +30,7 @@ const Clock = ({end}) => {
 
   return (
     <div className="App col">
-      <div style={{minWidth: '830px', minHeight: '180px'}} className="row">
+      <div style={{width: '100vh', minHeight: '180px'}} className="row">
         <div className="col">
           <img
             style={{
@@ -53,7 +53,7 @@ const Clock = ({end}) => {
           />
         </div>
       </div>
-      <div style={{minWidth: '1440px', minHeight: '155.25px'}} className="row">
+      <div style={{minWidth: '1280px', minHeight: '155.25px'}} className="row">
         <div className="col">
           <img
             style={{
@@ -109,7 +109,7 @@ const Clock = ({end}) => {
           />
         </div>
       </div>
-      <div style={{minWidth: '1440px', minHeight: '155.25px'}} className="row">
+      <div style={{minWidth: '1250px', minHeight: '155.25px'}} className="row">
         <div className="col">
           <img
             style={{
@@ -165,7 +165,7 @@ const Clock = ({end}) => {
           />
         </div>
       </div>
-      <div style={{minWidth: '1440px', minHeight: '155.25px'}} className="row">
+      <div style={{minWidth: '1250px', minHeight: '155.25px'}} className="row">
         <div className="col">
           <img
             style={{
@@ -221,7 +221,7 @@ const Clock = ({end}) => {
           />
         </div>
       </div>
-      <div style={{minWidth: '830px', minHeight: '180px'}} className="row">
+      <div style={{maxWidth: '1250px', minHeight: '180px'}} className="row">
         <div className="col">
           <img
             style={{

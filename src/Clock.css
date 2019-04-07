@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background: radial-gradient(rgb(16, 10, 16) 65%, transparent);
+  background: radial-gradient(rgb(16, 10, 16) 57%, transparent);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

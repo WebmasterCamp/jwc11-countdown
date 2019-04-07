@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Pridi:400,600&subset=thai');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Pridi', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(#2e45a3, #bb6602);
+  overflow: hidden;
 }
 
 code {
@@ -25,4 +28,8 @@ code {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
+}
+
+.Countdown {
+  font-size: 4em;
 }

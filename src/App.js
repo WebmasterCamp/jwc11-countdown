@@ -47,8 +47,17 @@ const App = () => {
 
   return (
     <>
-      {config.start ? <Clock end={config.end} /> : <Loading />}
-      {config.announcement && <Message message={config.message} />}
+      {config.start ? (
+        <>
+          <Clock end={config.end} />
+          {config.announcement && (
+            <Message announce={config.announcement} message={config.message} />
+          )}
+        </>
+      ) : (
+        <Loading />
+      )}
+
       <div style={{display: 'none'}}>{JSON.stringify(config)}</div>
     </>
   )
