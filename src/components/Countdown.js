@@ -9,6 +9,7 @@ class Countdown extends Component {
       hours: 0,
       min: 0,
       sec: 0,
+      millisec: 0,
       isStart: false,
       diff: 0
     }
@@ -23,12 +24,12 @@ class Countdown extends Component {
       this.interval = setInterval(() => {
         const date = this.calculateCountdown(this.props.date)
         date ? this.setState(date) : this.stopTimer()
-      }, 1)
+      }, 100)
     }
   }
 
   calculateCountdown(endDate) {
-    let diff = (Date.parse(new Date(endDate)) - Date.parse(new Date())) / 1000
+    let diff = new Date(endDate) - new Date()
     // clear countdown when date is reached
     if (diff < 0) return false
 
@@ -41,6 +42,8 @@ class Countdown extends Component {
       millisec: 0
     }
 
+    timeLeft.millisec = diff % 1000
+    diff = Math.floor(diff / 1000)
     // calculate time difference between now and expected date
     if (diff >= 365.25 * 86400) {
       // 365.25 * 24 * 60 * 60
@@ -82,6 +85,14 @@ class Countdown extends Component {
     return value
   }
 
+  addLeadingMillZeros(value) {
+    value = String(value)
+    while (value.length < 3) {
+      value = '0' + value
+    }
+    return value
+  }
+
   componentDidMount() {
     let date = this.calculateCountdown(this.props.date)
     date && this.setState(date)
@@ -111,7 +122,10 @@ class Countdown extends Component {
 
         <span className="Countdown-col">
           <span className="Countdown-col-element">
-            <strong>{this.addLeadingZeros(countDown.sec)}</strong>
+            <strong>
+              {this.addLeadingZeros(countDown.sec)}.
+              {this.addLeadingMillZeros(countDown.millisec)}
+            </strong>
           </span>
         </span>
       </div>

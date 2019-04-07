@@ -50,9 +50,7 @@ const App = () => {
       {config.start ? (
         <>
           <Clock end={config.end} />
-          {config.announcement && (
-            <Message announce={config.announcement} message={config.message} />
-          )}
+          <Message announce={config.announcement} message={config.message} />
         </>
       ) : (
         <Loading />
